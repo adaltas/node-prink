@@ -1,6 +1,6 @@
 
 should = require 'should'
-prink = require '../lib'
+prink = require '../src'
 
 describe 'mode', ->
 
@@ -21,13 +21,4 @@ describe 'mode', ->
     prink.mode.compare(420, '644').should.be.True
     prink.mode.compare('1777', 0o1777).should.be.True
     prink.mode.compare(1023, '1777').should.be.True
-    # # console.log '>>', prink.mode()
-    # # console.log '>>', prink.mode.compare
-    # console.log 'f:', prink.mode 'ok'
-    # # prink.mode
-    # console.log 'p:', prink.mode
-    # console.log 'g:', prink.mode.compare 'ok'
-    # # prink.mode()
-    # # prink.mode
-    # # prink.mode.compare
 

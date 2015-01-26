@@ -1,6 +1,6 @@
 
 should = require 'should'
-prink = require '../lib'
+prink = require '../src'
 
 describe 'filesize', ->
 
@@ -12,10 +12,16 @@ describe 'filesize', ->
     prink.filesize.bit(289128045).should.eql '2 Gb'
     prink.filesize.bit(289128045, 2).should.eql '2.15 Gb'
 
-  it 'format unit', ->
-    prink.filesize.kilobytes(289128045).should.eql '282352 KB' # 282351,6064453125
-    prink.filesize.gigabytes(289128045, 2).should.eql '0.27 GB' # 275.73
-    prink.filesize.Mb(12382232, 2).should.eql '94.47 Mb'
+  it 'format to unit', ->
+    prink.filesize.to.kilobytes(289128045).should.eql '282352 KB' # 282351,6064453125
+    prink.filesize.to.gigabytes(289128045, 2).should.eql '0.27 GB' # 275.73
+    prink.filesize.to.Mb(12382232, 2).should.eql '94.47 Mb'
+
+  it 'format from unit', ->
+    prink.filesize.from.megabytes(289128045).should.eql '276 TB'
+
+  it 'format from and to unit', ->
+    prink.filesize.from.megabytes.to.petabytes(289128045, 2).should.eql '0.27 PB' # 275.73
 
   it 'parse', ->
     prink.filesize.parse('276 MB').should.eql 289406976
@@ -26,7 +32,7 @@ describe 'filesize', ->
     prink.filesize.parse('275.73MB').should.eql 289123860.48
 
   it 'parse unit', ->
-    prink.filesize.parse.kilobytes('276 MB').should.eql 282624
+    prink.filesize.parse.to.kilobytes('276 MB').should.eql 282624
 
   it 'parse bit', ->
     prink.filesize.parse.bit('276 MB').should.eql 2315255808

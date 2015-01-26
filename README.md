@@ -23,16 +23,16 @@ To format a number, you may call directly `filesize` or `filesize.format`.
 ```
 prink.filesize(12382232) === '11 MB'
 prink.filesize.bit(12382232) === '94 Mb'
-prink.filesize.kilobytes(12382232, 2) === '12092.02 KB'
-prink.filesize.KB(12382232, 2) === '12092.02 KB'
-prink.filesize.Mb(12382232, 2) === '94.47 Mb'
+prink.filesize.to.kilobytes(12382232, 2) === '12092.02 KB'
+prink.filesize.from.KB.to.MB(12832, 2) === '12.53 MB'
+prink.filesize.to.Mb(12382232, 2) === '94.47 Mb'
 ```
 
 To parse a string into a number, you may call `filesize.parse`.
 
 ```
 prink.filesize.parse('120 KB') === 123820
-prink.filesize.parse.megabytes('120 KB') === 0.1171875
+prink.filesize.parse.to.megabytes('120 KB') === 0.1171875
 prink.filesize.parse.bit('120 KB') === 990560
 ```
 
@@ -48,5 +48,5 @@ prink.filesize.compare('120 KB', 123820) === true
 prink.mode(420) === '644'
 prink.mode(1023) === '1777'
 prink.mode.parse('1777') === 1023
-prink.mode.parse.compare('0644', 420) === true
+prink.mode.compare('0644', 420) === true
 ```

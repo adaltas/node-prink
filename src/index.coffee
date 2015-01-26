@@ -46,6 +46,12 @@ Object.defineProperty module.exports, 'filesize', get: ->
     bit: get: ->
       options.bit = true
       build()
+  directions = ['from', 'to']
+  directions.forEach (direction) ->
+    properties[direction] = get: ->
+      throw Error "Invalid usage of #{direction}" if options.direction
+      options.direction = "#{direction}"
+      build()
   units = [
     ['KB', 'kilobytes']
     ['MB', 'megabytes']
@@ -66,7 +72,10 @@ Object.defineProperty module.exports, 'filesize', get: ->
   ]
   units.forEach (unit) ->
     properties[unit[0]] = get: ->
-      options.unit = unit[0]
+      throw Error 'Use from or to before unit' unless options.direction in directions
+      throw Error "Unit already defined" if options[options.direction]
+      options[options.direction] = unit[0]
+      options.direction = null
       build()
     properties[unit[1]] = properties[unit[0]]
   proto = Object.defineProperties result, properties

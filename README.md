@@ -1,6 +1,6 @@
 [![Build Status](https://secure.travis-ci.org/adaltas/node-prink.png)](http://travis-ci.org/adaltas/node-prink)
 
-Prink is a Node.js used to format filesize and file mode. Other convertions will
+Prink is a Node.js package used to format filesize and file mode. Other conversions will
 be made available on demand such as file permissions and dates.
 
 ## Usage
@@ -15,7 +15,7 @@ All the convertions supported by Prink can format, parse and compare values.
 
 ## File Size
 
-Additionnal properties may be chained such as "bit" and any unit from "kilobytes"
+Additional properties may be chained such as "bit" and any unit from "kilobytes"
 to "yottabytes", from "kilobits" to "yottabits", "KB" to "YB", "Kb" to "Yb".
 
 To format a number, you may call directly `filesize` or `filesize.format`.

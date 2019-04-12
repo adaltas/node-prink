@@ -3,10 +3,7 @@
   "name": "prink",
   "description": "Human Readable pretty convertions (stringify, parse, compare) for filesize, file mode...",
   "keywords": [ "csv", "pretty", "prettify", "beautify", "format" ],
-  "licenses": [{
-    "type": "BSD",
-    "url": "https://github.com/adaltas/node-prink/blob/master/LICENSE"
-  }],
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "http://www.github.com/adaltas/node-prink"

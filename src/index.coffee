@@ -33,7 +33,7 @@ Object.defineProperty module.exports, 'filesize', get: ->
     builder
   result = ->
     result.format arguments...
-  properties = 
+  properties =
     format: get: ->
       options.action = 'format'
       build()
@@ -80,4 +80,3 @@ Object.defineProperty module.exports, 'filesize', get: ->
     properties[unit[1]] = properties[unit[0]]
   proto = Object.defineProperties result, properties
   result
-
